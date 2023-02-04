@@ -30,7 +30,23 @@ class BlankFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_blank, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        ButterKnife.bind(this, view)
+
+        toastCreateButton.setOnClickListener {
+            if (toastText.text!!.length < MINIMUM_TOAST_LENGTH) {
+                toastInputLayout.error = getString(R.string.toast_error, MINIMUM_TOAST_LENGTH)
+            } else {
+                toastInputLayout.error = ""
+                Toast.makeText(activity, toastText.text, Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
     companion object {
+        const val MINIMUM_TOAST_LENGTH = 3;
+
         /**
          * Use this factory method to create a new instance of
          * this fragment using the provided parameters.

@@ -3,4 +3,5 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="toast_create">Bake the toast!</string>
     <string name="toast_text">Toast description</string>
+    <string name="toast_error" formatted="false">Minimum %d characters required</string>
 </resources>
