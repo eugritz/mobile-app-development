@@ -5,6 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.Toast
+import butterknife.BindView
+import butterknife.ButterKnife
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 
 /**
  * A simple [Fragment] subclass.
@@ -12,6 +18,10 @@ import android.view.ViewGroup
  * create an instance of this fragment.
  */
 class BlankFragment : Fragment() {
+    @BindView(R.id.toast_input_layout) lateinit var toastInputLayout: TextInputLayout;
+    @BindView(R.id.toast_text) lateinit var toastText: TextInputEditText;
+    @BindView(R.id.toast_create) lateinit var toastCreateButton: Button;
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

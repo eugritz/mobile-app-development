@@ -13,16 +13,20 @@
         android:text="@string/hello_blank_fragment" />
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/toast_input_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/toast_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/toast_text" />
+            android:hint="@string/toast_text"
+            android:singleLine="true" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
+        android:id="@+id/toast_create"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/toast_create" />
