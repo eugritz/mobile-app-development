@@ -1,6 +1,5 @@
 package ru.omgtu.lab02.fragment_stack
 
-import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,6 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import butterknife.ButterKnife
 import butterknife.OnClick
+import org.greenrobot.eventbus.EventBus
+import ru.omgtu.lab02.MainFragment
+import ru.omgtu.lab02.events.PopBackStackEvent
 import ru.omgtu.lab02.R
 
 /**
@@ -16,15 +18,6 @@ import ru.omgtu.lab02.R
  * create an instance of this fragment.
  */
 class Fragment3 : Fragment() {
-    private var callbacks: Fragment3Callbacks? = null
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        if (context is Fragment3Callbacks) {
-            callbacks = context
-        }
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -37,23 +30,23 @@ class Fragment3 : Fragment() {
 
     @OnClick(R.id.returnToFragment1)
     fun returnToFragment1() {
-        callbacks?.returnToFragment1()
+        EventBus.getDefault().post(
+            PopBackStackEvent(Fragment2.TAG, true)
+        )
     }
 
     @OnClick(R.id.returnToFragment2)
     fun returnToFragment2() {
-        callbacks?.returnToFragment2()
+        EventBus.getDefault().post(
+            PopBackStackEvent(Fragment2.TAG)
+        )
     }
 
     @OnClick(R.id.returnHome)
     fun returnHome() {
-        callbacks?.returnHome()
-    }
-
-    interface Fragment3Callbacks {
-        fun returnToFragment1()
-        fun returnToFragment2()
-        fun returnHome()
+        EventBus.getDefault().post(
+            PopBackStackEvent(MainFragment.TAG)
+        )
     }
 
     companion object {
