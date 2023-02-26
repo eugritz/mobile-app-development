@@ -34,19 +34,19 @@ class MainFragment : Fragment() {
         return view
     }
 
-    @OnClick(R.id.button1)
-    fun onButton1Click() {
-        callbacks?.onButton1Click()
+    @OnClick(R.id.showActivity1)
+    fun showActivity1() {
+        callbacks?.showActivity1()
     }
 
-    @OnClick(R.id.button2)
-    fun onButton2Click() {
-        callbacks?.onButton2Click()
+    @OnClick(R.id.showActivity2)
+    fun showActivity2() {
+        callbacks?.showActivity2()
     }
 
     interface MainFragmentCallbacks {
-        fun onButton1Click()
-        fun onButton2Click()
+        fun showActivity1()
+        fun showActivity2()
     }
 
     companion object {

@@ -1,0 +1,23 @@
+package ru.omgtu.lab02.activity_stack
+
+import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import butterknife.ButterKnife
+import butterknife.OnClick
+import ru.omgtu.lab02.R
+
+class Activity1 : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_1)
+        ButterKnife.bind(this)
+    }
+
+    @OnClick(R.id.showActivity)
+    fun showActivity() {
+        val intent = Intent(this, Activity2::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_REORDER_TO_FRONT
+        startActivity(intent)
+    }
+}

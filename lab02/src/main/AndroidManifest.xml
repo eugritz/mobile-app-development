@@ -8,6 +8,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Lab01Intro">
         <activity
+            android:name=".activity_stack.Activity2"
+            android:exported="false" />
+        <activity
+            android:name=".activity_stack.Activity1"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
