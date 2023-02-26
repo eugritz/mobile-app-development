@@ -44,9 +44,15 @@ class MainFragment : Fragment() {
         callbacks?.showActivity2()
     }
 
+    @OnClick(R.id.showFragment1)
+    fun showFragment1() {
+        callbacks?.showFragment1()
+    }
+
     interface MainFragmentCallbacks {
         fun showActivity1()
         fun showActivity2()
+        fun showFragment1()
     }
 
     companion object {

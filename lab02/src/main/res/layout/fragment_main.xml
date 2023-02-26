@@ -1,26 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainFragment">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_blank_fragment" />
-
     <Button
         android:id="@+id/showActivity1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/button1" />
+        android:text="@string/showActivity1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/showFragment1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/showFragment1"
+        android:layout_marginStart="5dp"
+        app:layout_constraintLeft_toRightOf="@+id/showActivity1"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/showActivity2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/button2" />
+        android:text="@string/showActivity2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/showActivity1" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
