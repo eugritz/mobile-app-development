@@ -18,6 +18,17 @@ import ru.omgtu.lab02.fragment_stack.Fragment1
  * create an instance of this fragment.
  */
 class MainFragment : BaseFragment() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        if (savedInstanceState == null) {
+            childFragmentManager
+                .beginTransaction()
+                .add(R.id.fragmentContainerView, AppleFragment.newInstance())
+                .commit()
+        }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

@@ -14,11 +14,13 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        supportFragmentManager
-            .beginTransaction()
-            .add(R.id.fragmentContainerView, MainFragment.newInstance(), MainFragment.TAG)
-            .addToBackStack(MainFragment.TAG)
-            .commit()
+        if (savedInstanceState == null) {
+            supportFragmentManager
+                .beginTransaction()
+                .add(R.id.fragmentContainerView, MainFragment.newInstance(), MainFragment.TAG)
+                .addToBackStack(MainFragment.TAG)
+                .commit()
+        }
     }
 
     @Subscribe
