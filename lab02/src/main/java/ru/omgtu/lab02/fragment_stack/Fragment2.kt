@@ -1,47 +1,35 @@
 package ru.omgtu.lab02.fragment_stack
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import butterknife.ButterKnife
 import butterknife.OnClick
-import org.greenrobot.eventbus.EventBus
 import ru.omgtu.lab02.MainFragment
 import ru.omgtu.lab02.events.PopBackStackEvent
 import ru.omgtu.lab02.R
+import ru.omgtu.lab02.base.BaseFragment
 import ru.omgtu.lab02.events.ShowFragmentEvent
 
 /**
- * A simple [Fragment] subclass.
+ * A simple [BaseFragment] subclass.
  * Use the [Fragment2.newInstance] factory method to
  * create an instance of this fragment.
  */
-class Fragment2 : Fragment() {
+class Fragment2 : BaseFragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_2, container, false)
-        ButterKnife.bind(this, view)
-        return view
+        return inflater.inflate(R.layout.fragment_2, container, false)
     }
 
     @OnClick(R.id.showFragment)
-    fun showFragment() {
-        EventBus.getDefault().post(
-            ShowFragmentEvent(Fragment3.newInstance(), Fragment3.TAG)
-        )
-    }
+    fun showFragment() = bus.post(ShowFragmentEvent(Fragment3.newInstance(), Fragment3.TAG))
 
     @OnClick(R.id.returnHome)
-    fun returnHome() {
-        EventBus.getDefault().post(
-            PopBackStackEvent(MainFragment.TAG)
-        )
-    }
+    fun returnHome() = bus.post(PopBackStackEvent(MainFragment.TAG))
 
     companion object {
         const val TAG = "FRAGMENT2"

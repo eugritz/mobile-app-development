@@ -1,13 +1,13 @@
 package ru.omgtu.lab02.activity_stack
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import butterknife.ButterKnife
 import butterknife.OnClick
 import ru.omgtu.lab02.R
+import ru.omgtu.lab02.base.BaseActivity
 
-class Activity2 : AppCompatActivity() {
+class Activity2 : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_2)
