@@ -3,4 +3,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="showActivity1">Show activity 1</string>
     <string name="showActivity2">Show activity 2</string>
+    <string name="showFragment1">Show fragment 1</string>
+    <string name="showFragment2">Show fragment 2</string>
+    <string name="showFragment3">Show fragment 3</string>
+    <string name="returnHome">Return home</string>
 </resources>

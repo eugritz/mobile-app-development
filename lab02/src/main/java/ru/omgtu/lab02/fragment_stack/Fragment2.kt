@@ -1,4 +1,4 @@
-package ru.omgtu.lab02
+package ru.omgtu.lab02.fragment_stack
 
 import android.content.Context
 import android.os.Bundle
@@ -8,18 +8,19 @@ import android.view.View
 import android.view.ViewGroup
 import butterknife.ButterKnife
 import butterknife.OnClick
+import ru.omgtu.lab02.R
 
 /**
  * A simple [Fragment] subclass.
- * Use the [MainFragment.newInstance] factory method to
+ * Use the [Fragment2.newInstance] factory method to
  * create an instance of this fragment.
  */
-class MainFragment : Fragment() {
-    private var callbacks: MainFragmentCallbacks? = null
+class Fragment2 : Fragment() {
+    private var callbacks: Fragment2Callbacks? = null
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        if (context is MainFragmentCallbacks) {
+        if (context is Fragment2Callbacks) {
             callbacks = context
         }
     }
@@ -29,36 +30,36 @@ class MainFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_main, container, false)
+        val view = inflater.inflate(R.layout.fragment_2, container, false)
         ButterKnife.bind(this, view)
         return view
     }
 
-    @OnClick(R.id.showActivity1)
-    fun showActivity1() {
-        callbacks?.showActivity1()
+    @OnClick(R.id.showFragment)
+    fun showFragment() {
+        callbacks?.showFragment3()
     }
 
-    @OnClick(R.id.showActivity2)
-    fun showActivity2() {
-        callbacks?.showActivity2()
+    @OnClick(R.id.returnHome)
+    fun returnHome() {
+        callbacks?.returnHome()
     }
 
-    interface MainFragmentCallbacks {
-        fun showActivity1()
-        fun showActivity2()
+    interface Fragment2Callbacks {
+        fun showFragment3()
+        fun returnHome()
     }
 
     companion object {
-        const val TAG = "MAINFRAGMENT"
+        const val TAG = "FRAGMENT2"
 
         /**
          * Use this factory method to create a new instance of
          * this fragment using the provided parameters.
          *
-         * @return A new instance of fragment MainFragment.
+         * @return A new instance of fragment Fragment2.
          */
         @JvmStatic
-        fun newInstance() = MainFragment()
+        fun newInstance() = Fragment2()
     }
 }
