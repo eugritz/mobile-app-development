@@ -24,15 +24,6 @@ class MainActivity : BaseActivity() {
     }
 
     @Subscribe
-    fun handleShowActivity(event: ShowFragmentEvent) {
-        supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.fragmentContainerView, event.fragment, event.tag)
-            .addToBackStack(event.tag)
-            .commit()
-    }
-
-    @Subscribe
     fun handleShowActivity(event: ShowActivityEvent) {
         val intent = Intent(this, event.cls)
         intent.flags = Intent.FLAG_ACTIVITY_REORDER_TO_FRONT
