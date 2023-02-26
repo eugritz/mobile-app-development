@@ -1,16 +1,12 @@
 package ru.omgtu.lab02
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import butterknife.OnClick
-import ru.omgtu.lab02.activity_stack.Activity1
-import ru.omgtu.lab02.activity_stack.Activity2
 import ru.omgtu.lab02.base.BaseFragment
-import ru.omgtu.lab02.events.ShowActivityEvent
-import ru.omgtu.lab02.events.ShowFragmentEvent
-import ru.omgtu.lab02.fragment_stack.Fragment1
 
 /**
  * A simple [BaseFragment] subclass.
@@ -18,6 +14,15 @@ import ru.omgtu.lab02.fragment_stack.Fragment1
  * create an instance of this fragment.
  */
 class MainFragment : BaseFragment() {
+    private var callbacks: MainFragmentCallbacks? = null
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if (context is MainFragmentCallbacks) {
+            callbacks = context
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -38,13 +43,25 @@ class MainFragment : BaseFragment() {
     }
 
     @OnClick(R.id.showActivity1)
-    fun showActivity1() = bus.post(ShowActivityEvent(Activity1::class.java))
+    fun showActivity1() {
+        callbacks?.showActivity1()
+    }
 
     @OnClick(R.id.showActivity2)
-    fun showActivity2() = bus.post(ShowActivityEvent(Activity2::class.java))
+    fun showActivity2() {
+        callbacks?.showActivity2()
+    }
 
     @OnClick(R.id.showFragment1)
-    fun showFragment1() = bus.post(ShowFragmentEvent(Fragment1.newInstance(), Fragment1.TAG))
+    fun showFragment1() {
+        callbacks?.showFragment1()
+    }
+
+    interface MainFragmentCallbacks {
+        fun showActivity1()
+        fun showActivity2()
+        fun showFragment1()
+    }
 
     companion object {
         const val TAG = "MAINFRAGMENT"
