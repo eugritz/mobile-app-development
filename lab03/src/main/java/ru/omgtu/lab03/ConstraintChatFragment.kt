@@ -31,7 +31,7 @@ class ConstraintChatFragment : BaseFragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_linear_chat, container, false)
+        return inflater.inflate(R.layout.fragment_constraint_chat, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
