@@ -11,7 +11,12 @@ class MainActivity : AppCompatActivity(), MainFragment.MainFragmentCallbacks {
     }
 
     override fun onButton1Pressed() {
-        Toast.makeText(this, "Button 1", Toast.LENGTH_SHORT).show()
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.fragmentContainerView, LinearChatFragment.newInstance(),
+                LinearChatFragment.TAG)
+            .addToBackStack(LinearChatFragment.TAG)
+            .commit()
     }
     override fun onButton2Pressed() {
         Toast.makeText(this, "Button 2", Toast.LENGTH_SHORT).show()
