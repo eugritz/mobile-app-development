@@ -38,23 +38,23 @@ class ConstraintChatFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         if (savedInstanceState == null) {
             for (i in 1..100) {
-                val sentMessage = "Annoying: he" + "e".repeat(i / 10) + "y"
-                sendMessage(sentMessage, false)
+                val sentMessage = "he" + "e".repeat(i / 10) + "y"
+                sendMessage("Annoying", sentMessage, false)
             }
         }
     }
 
     @OnClick(R.id.sendButton)
     fun onSendClicked() {
-        sendMessage(messageText.text.toString())
+        sendMessage("You", messageText.text.toString())
     }
 
-    fun sendMessage(message: String, scroll: Boolean = true) {
+    fun sendMessage(author: String, message: String, scroll: Boolean = true) {
         if (message.trim() == "")
             return
 
         val text = TextView(context)
-        val sentMessage = "You: $message"
+        val sentMessage = "$author: $message"
         text.text = sentMessage
         text.layoutParams = LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)
         text.textSize = 32.0f
