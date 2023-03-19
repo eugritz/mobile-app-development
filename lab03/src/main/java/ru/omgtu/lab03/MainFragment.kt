@@ -14,7 +14,7 @@ import butterknife.OnClick
  * Use the [MainFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class MainFragment : Fragment() {
+class MainFragment : BaseFragment() {
     private var callbacks: MainFragmentCallbacks? = null
 
     override fun onAttach(context: Context) {
@@ -29,9 +29,7 @@ class MainFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_main, container, false)
-        ButterKnife.bind(this, view)
-        return view
+        return inflater.inflate(R.layout.fragment_main, container, false)
     }
 
     @OnClick(R.id.button1)
