@@ -19,7 +19,12 @@ class MainActivity : AppCompatActivity(), MainFragment.MainFragmentCallbacks {
             .commit()
     }
     override fun onButton2Pressed() {
-        Toast.makeText(this, "Button 2", Toast.LENGTH_SHORT).show()
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.fragmentContainerView, ConstraintChatFragment.newInstance(),
+                ConstraintChatFragment.TAG)
+            .addToBackStack(ConstraintChatFragment.TAG)
+            .commit()
     }
     override fun onButton3Pressed() {
         Toast.makeText(this, "Button 3", Toast.LENGTH_SHORT).show()
