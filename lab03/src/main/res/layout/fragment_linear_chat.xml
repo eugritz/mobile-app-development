@@ -29,14 +29,14 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:hint="Message"
+            android:hint="@string/messageHint"
             android:inputType="text" />
 
         <Button
             android:id="@+id/sendButton"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Send" />
+            android:text="@string/messageSend" />
     </LinearLayout>
 
 </LinearLayout>

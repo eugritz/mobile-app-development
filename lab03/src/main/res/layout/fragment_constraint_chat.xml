@@ -42,7 +42,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@id/sendButton"
             app:layout_constraintTop_toTopOf="parent"
-            android:hint="Message"
+            android:hint="@string/messageHint"
             android:inputType="text" />
 
         <Button
@@ -52,7 +52,7 @@
             app:layout_constraintLeft_toRightOf="@id/messageText"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:text="Send" />
+            android:text="@string/messageSend" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

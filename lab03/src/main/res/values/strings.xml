@@ -5,4 +5,6 @@
     <string name="button1">LinearLayout Chat</string>
     <string name="button2">ConstraintLayout Chat</string>
     <string name="button3">Image Viewer</string>
+    <string name="messageHint">Message</string>
+    <string name="messageSend">Send</string>
 </resources>
