@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity(), MainFragment.MainFragmentCallbacks {
             .addToBackStack(LinearChatFragment.TAG)
             .commit()
     }
+
     override fun onButton2Pressed() {
         supportFragmentManager
             .beginTransaction()
@@ -26,9 +27,16 @@ class MainActivity : AppCompatActivity(), MainFragment.MainFragmentCallbacks {
             .addToBackStack(ConstraintChatFragment.TAG)
             .commit()
     }
+
     override fun onButton3Pressed() {
-        Toast.makeText(this, "Button 3", Toast.LENGTH_SHORT).show()
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.fragmentContainerView, ImageViewerFragment.newInstance(),
+                ImageViewerFragment.TAG)
+            .addToBackStack(ImageViewerFragment.TAG)
+            .commit()
     }
+
     override fun onButton4Pressed() {
         Toast.makeText(this, "Button 4", Toast.LENGTH_SHORT).show()
     }
