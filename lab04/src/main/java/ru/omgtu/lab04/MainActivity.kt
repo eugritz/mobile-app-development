@@ -30,6 +30,13 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, Activity2::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_REORDER_TO_FRONT
         intent.putExtra("USER_LOGIN", login)
-        startActivity(intent)
+        startActivityForResult(intent, Activity2.APPLY)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == Activity2.APPLY) {
+            Toast.makeText(this, data?.getStringExtra("DATE") ?: ":(", Toast.LENGTH_LONG).show()
+        }
     }
 }
