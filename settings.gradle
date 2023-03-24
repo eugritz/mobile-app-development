@@ -16,3 +16,4 @@ rootProject.name = "Lab01-Intro"
 include ':lab01'
 include ':lab02'
 include ':lab03'
+include ':lab04'
