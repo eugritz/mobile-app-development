@@ -34,8 +34,4 @@ class Activity2 : AppCompatActivity() {
         setResult(RESULT_OK, intent)
         finish()
     }
-
-    companion object {
-        const val APPLY = 2
-    }
 }
