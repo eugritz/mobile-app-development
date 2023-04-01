@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">lab04</string>
+
+    <string name="support">Support us!</string>
+    <string name="login_placeholder">Login</string>
+    <string name="login">Log in</string>
+    <string name="open_image">Open image</string>
+    <string name="take_photo">Take photo</string>
 </resources>
