@@ -28,7 +28,7 @@ class Activity2 : AppCompatActivity() {
     fun onApplyClicked() {
         val intent = Intent()
         val date = "${datePicker.dayOfMonth.toString().padStart(2, '0')}." +
-                "${datePicker.month.toString().padStart(2, '0')}." +
+                "${(datePicker.month + 1).toString().padStart(2, '0')}." +
                 "${datePicker.year}"
         intent.putExtra("DATE", date)
         setResult(RESULT_OK, intent)
